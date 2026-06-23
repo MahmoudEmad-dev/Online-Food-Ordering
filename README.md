@@ -69,24 +69,41 @@
 
 ---
 
+## 🎬 Demo Videos
+
+> Recorded browser walkthroughs showcasing core features.
+
+| Demo | Description |
+|------|-------------|
+| 🏠🌍 Homepage & i18n | ![Homepage & Language Switch](demos/01-homepage-and-i18n.webp) |
+| 🍕 Menu Browsing | ![Menu Browsing & Category Filters](demos/02-menu-browsing-and-cart.webp) |
+| 🛒 Add to Cart | ![Adding Items to Cart](demos/03-add-items-to-cart.webp) |
+| 📝 Customer Registration | ![Customer Registration Flow](demos/04-customer-registration.webp) |
+
+---
+
 ## 📸 Screenshots
 
-> **Replace the placeholder links below with your own screenshots.**
+### 🏠 Home Page
+![Home Page — Dark glassmorphism hero with "Craving Something Delicious?" headline and Explore Menu CTA](screenshots/home-page.png)
 
-| View | Screenshot |
-|------|-----------|
-| 🏠 Home Page | ![Home Page Screenshot](link) |
-| 🍕 Menu Page | ![Menu Page Screenshot](link) |
-| 🛒 Cart Page | ![Cart Page Screenshot](link) |
-| 💳 Checkout Page | ![Checkout Page Screenshot](link) |
-| 📦 Order History | ![Orders Page Screenshot](link) |
-| 📋 Order Details | ![Order Detail Screenshot](link) |
-| 🔐 Login Page | ![Login Page Screenshot](link) |
-| 📝 Register Page | ![Register Page Screenshot](link) |
-| 📊 Admin Dashboard | ![Admin Dashboard Screenshot](link) |
-| 🍔 Admin Products | ![Admin Products Screenshot](link) |
-| 📦 Admin Orders | ![Admin Orders Screenshot](link) |
-| 🌍 Arabic (RTL) Mode | ![Arabic RTL Screenshot](link) |
+### 🍕 Menu Page
+![Menu Page — Full product grid with category filters (Burgers, Pizza, Drinks, Desserts) and Add to Cart buttons](screenshots/menu-page.png)
+
+### 🛒 Cart Page
+![Cart Page — Items with quantity controls, subtotal, delivery fee, and Proceed to Checkout CTA](screenshots/cart-page.png)
+
+### 💳 Checkout Page
+![Checkout Page — Delivery address, phone, payment method selection (COD / Online), and Place Order button](screenshots/checkout-page.png)
+
+### 📝 Register Page
+![Register Page — Full Name, Email, Password, Confirm Password fields with Create Account gradient button](screenshots/register-page.png)
+
+### 🔐 Login Page
+![Login Page — Email and Password fields with gradient Sign In button and Create Account link](screenshots/login-page.png)
+
+### 🌍 Arabic (RTL) Mode
+![Arabic RTL — Entire layout mirrored: navbar, hero text, footer all in right-to-left Arabic](screenshots/arabic-rtl.png)
 
 ---
 
