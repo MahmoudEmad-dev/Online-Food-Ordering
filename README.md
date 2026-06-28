@@ -13,6 +13,13 @@
 </p>
 
 <p align="center">
+  🌐 <strong>Live Demo:</strong> <a href="https://food-order-client-eyc5g3jyi-mahmoudemad-devs-projects.vercel.app/">FoodieExpress Client (Vercel)</a>
+  &nbsp;|&nbsp;
+  📑 <strong>API Documentation:</strong> <a href="https://online-food-prototype1.runasp.net/swagger/index.html">Swagger UI (MonsterASP)</a>
+</p>
+
+<p align="center">
+  <a href="#-recent-updates--enhancements">Recent Updates</a> •
   <a href="#-features">Features</a> •
   <a href="#-tech-stack">Tech Stack</a> •
   <a href="#-screenshots">Screenshots</a> •
@@ -21,6 +28,16 @@
   <a href="#-api-endpoints">API Endpoints</a> •
   <a href="#-admin-test-credentials">Admin Credentials</a>
 </p>
+
+---
+
+## 🚀 Recent Updates & Enhancements
+
+- 🎨 **Enhanced UI Redesign** — Transformed the application color scheme with vibrant, modern warm-amber/orange gradients and fully responsive glassmorphism containers. Main pages are now perfectly centered on high-resolution displays.
+- 🚀 **Cloud Deployment** — The full-stack app is now fully deployed. The frontend is hosted on **Vercel**, and the ASP.NET Core API is hosted on **MonsterASP.NET** with a persistent SQLite database.
+- 🔗 **Live Swagger API Docs** — Easily inspect and test backend API endpoints live through the [Interactive Swagger UI](https://online-food-prototype1.runasp.net/swagger/index.html).
+- 🔄 **Robust CORS & Security** — Configured dynamic CORS policy to support smooth integration across localhost, Vercel deployments, and production URLs.
+- 💾 **API Failure Fallback** — Enhanced checkout robustness by implementing client-side order fallback to local mock storage if the backend API is temporarily offline.
 
 ---
 
@@ -95,6 +112,9 @@
 
 ### 💳 Checkout Page
 ![Checkout Page — Delivery address, phone, payment method selection (COD / Online), and Place Order button](screenshots/checkout-page.png)
+
+### 📦 Order Details & Tracking
+![Order Details — Live tracking of order status (Pending, Preparing, Out for Delivery, Delivered) with address, phone, and itemized subtotal](screenshots/order-details.png)
 
 ### 📝 Register Page
 ![Register Page — Full Name, Email, Password, Confirm Password fields with Create Account gradient button](screenshots/register-page.png)
@@ -196,11 +216,19 @@ The frontend communicates with the backend via Axios. If your backend runs on a 
 
 ### 4️⃣ Verify Everything is Running
 
+#### 💻 Local Development
 | Service       | URL                                      | Status   |
 | ------------- | ---------------------------------------- | -------- |
 | Frontend      | `http://localhost:5173`                  | ✅ React App |
 | Backend API   | `https://localhost:5001`                 | ✅ .NET API  |
 | Swagger Docs  | `https://localhost:5001/swagger`         | ✅ API Docs  |
+
+#### 🌐 Live Production Deployments
+| Service       | URL                                      | Status   |
+| ------------- | ---------------------------------------- | -------- |
+| Live Frontend | [FoodieExpress (Vercel)](https://food-order-client-eyc5g3jyi-mahmoudemad-devs-projects.vercel.app/) | ✅ Deployed & Online |
+| Live Backend API | [MonsterASP API Root](https://online-food-prototype1.runasp.net/) | ✅ Running |
+| Live Swagger Docs | [Swagger UI](https://online-food-prototype1.runasp.net/swagger/index.html) | ✅ Docs Online |
 
 ---
 
