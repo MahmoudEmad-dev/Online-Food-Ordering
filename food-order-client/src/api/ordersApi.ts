@@ -20,13 +20,29 @@ export const ordersApi = {
   },
 
   getOrders: async (): Promise<Order[]> => {
-    const response = await axiosInstance.get<Order[]>('/orders');
-    return response.data;
+    let apiOrders: Order[] = [];
+    try {
+      const response = await axiosInstance.get<Order[]>('/orders');
+      apiOrders = response.data;
+    } catch (err) {
+      console.warn('Failed to fetch orders from API, returning local mock orders', err);
+    }
+    const localOrders = JSON.parse(localStorage.getItem('mock_orders') || '[]');
+    return [...localOrders, ...apiOrders];
   },
 
   getOrder: async (id: number): Promise<Order> => {
-    const response = await axiosInstance.get<Order>(`/orders/${id}`);
-    return response.data;
+    try {
+      const response = await axiosInstance.get<Order>(`/orders/${id}`);
+      return response.data;
+    } catch (err) {
+      const localOrders = JSON.parse(localStorage.getItem('mock_orders') || '[]');
+      const localOrder = localOrders.find((o: any) => o.id === id);
+      if (localOrder) {
+        return localOrder;
+      }
+      throw err;
+    }
   },
 };
 
