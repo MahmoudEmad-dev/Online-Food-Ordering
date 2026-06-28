@@ -6,7 +6,8 @@ import { useCart } from '../../contexts/CartContext';
 import LanguageSwitcher from '../common/LanguageSwitcher';
 
 export default function Navbar() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language?.startsWith('ar') ? 'ar' : 'en';
   const { isAuthenticated, isAdmin, user, logout } = useAuth();
   const { totalItems } = useCart();
   const location = useLocation();
@@ -23,9 +24,21 @@ export default function Navbar() {
     <nav className="navbar glass-strong" id="main-navbar">
       <div className="navbar-container container">
         {/* Logo */}
-        <Link to="/" className="navbar-logo" onClick={closeMobile}>
-          <span className="logo-icon">🍔</span>
-          <span className="logo-text gradient-text">{t('app.title')}</span>
+        <Link to="/" className="navbar-logo flex items-center gap-2" onClick={closeMobile}>
+          <svg className="w-7 h-7 text-primary transition-transform duration-300 hover:rotate-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M3 15h18" />
+            <path d="M3 15a9 9 0 0 1 18 0" fill="currentColor" fillOpacity="0.2" />
+            <path d="M12 6V3" />
+            <path d="M10 3h4" />
+            <path d="M4 18h16" />
+          </svg>
+          <span className="logo-text font-black tracking-tight text-xl text-white">
+            {currentLang === 'en' ? (
+              <>Food<span className="text-primary">Hub</span></>
+            ) : (
+              t('app.title')
+            )}
+          </span>
         </Link>
 
         {/* Desktop Nav */}

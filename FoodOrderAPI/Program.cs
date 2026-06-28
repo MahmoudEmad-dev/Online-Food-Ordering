@@ -14,9 +14,12 @@ using FoodOrderAPI.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ─── Port Configuration (for Render.com) ─────────────────────────────────────
-var port = Environment.GetEnvironmentVariable("PORT") ?? "5069";
-builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
+// ─── Port Configuration (for Render.com / Docker) ────────────────────────────
+var port = Environment.GetEnvironmentVariable("PORT");
+if (!string.IsNullOrEmpty(port))
+{
+    builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
+}
 
 // ─── Database Context ────────────────────────────────────────────────────────
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? "";

@@ -44,7 +44,7 @@ export default function MenuPage() {
   });
 
   return (
-    <div className="container mx-auto py-12 px-4 animate-fade-in">
+    <div className="w-full max-w-6xl mx-auto py-12 px-4 animate-fade-in">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-10">
         <div>
           <h1 className="text-4xl font-black gradient-text tracking-tight mb-2">
@@ -68,7 +68,7 @@ export default function MenuPage() {
       </div>
 
       {/* Category Tabs */}
-      <div className="flex gap-2 overflow-x-auto pb-4 mb-8 scrollbar-hide">
+      <div className="flex justify-start sm:justify-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-hide">
         {CATEGORIES.map((category) => (
           <button
             key={category}
@@ -76,7 +76,7 @@ export default function MenuPage() {
             className={`px-6 py-2.5 rounded-full font-semibold transition-base cursor-pointer shrink-0 ${
               selectedCategory === category
                 ? 'bg-primary text-white shadow-glow'
-                : 'bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-slate-100'
+                : 'bg-zinc-800 text-zinc-400 hover:bg-zinc-700 hover:text-zinc-100'
             }`}
           >
             {category === 'All' ? t('menu.all') : t(`menu.${category.toLowerCase()}`)}

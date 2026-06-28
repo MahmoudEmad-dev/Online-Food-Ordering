@@ -97,7 +97,7 @@ export default function CheckoutPage() {
 
   if (items.length === 0) {
     return (
-      <div className="container mx-auto py-16 px-4 text-center">
+      <div className="w-full max-w-md mx-auto py-16 px-4 text-center">
         <div className="card p-10 glass max-w-sm mx-auto">
           <h2 className="text-xl font-bold mb-4">{t('cart.empty')}</h2>
           <button onClick={() => navigate('/menu')} className="btn-primary w-full">
@@ -109,7 +109,7 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div className="container mx-auto py-12 px-4 animate-fade-in relative">
+    <div className="w-full max-w-5xl mx-auto py-12 px-4 animate-fade-in relative">
       {/* Processing overlay */}
       {paymentProcessing && (
         <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-md flex flex-col items-center justify-center z-50 animate-fade-in">

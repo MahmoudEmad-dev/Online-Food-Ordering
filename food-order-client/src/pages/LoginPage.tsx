@@ -50,7 +50,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="container mx-auto py-16 px-4 max-w-md animate-fade-in">
+    <div className="w-full max-w-md mx-auto py-16 px-4 animate-fade-in">
       <div className="card p-8 glass-strong">
         <h1 className="text-3xl font-black mb-2 text-center gradient-text">
           {t('auth.login')}
