@@ -86,16 +86,11 @@
 
 ---
 
-## 🎬 Demo Videos
+## 🎬 Demo Walkthrough
 
-> Recorded browser walkthroughs showcasing core features.
+> Live recorded walkthrough of the complete order placement flow.
 
-| Demo | Description |
-|------|-------------|
-| 🏠🌍 Homepage & i18n | ![Homepage & Language Switch](demos/01-homepage-and-i18n.webp) |
-| 🍕 Menu Browsing | ![Menu Browsing & Category Filters](demos/02-menu-browsing-and-cart.webp) |
-| 🛒 Add to Cart | ![Adding Items to Cart](demos/03-add-items-to-cart.webp) |
-| 📝 Customer Registration | ![Customer Registration Flow](demos/04-customer-registration.webp) |
+![Full Application Walkthrough](demos/full-walkthrough.webp)
 
 ---
 
