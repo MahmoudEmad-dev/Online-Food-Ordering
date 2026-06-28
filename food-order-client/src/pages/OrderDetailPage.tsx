@@ -4,6 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import ordersApi from '../api/ordersApi';
 import type { Order } from '../types/order';
 import formatCurrency from '../utils/formatCurrency';
+import { resolveImageUrl } from '../utils/imageUrl';
 
 export default function OrderDetailPage() {
   const { t, i18n } = useTranslation();
@@ -175,7 +176,7 @@ export default function OrderDetailPage() {
                 return (
                   <div key={item.id} className={`flex items-center gap-4 ${idx > 0 ? 'pt-4' : ''}`}>
                     <img
-                      src={item.imageUrl}
+                      src={resolveImageUrl(item.imageUrl)}
                       alt={name}
                       className="w-16 h-16 object-cover rounded-lg bg-slate-800"
                     />

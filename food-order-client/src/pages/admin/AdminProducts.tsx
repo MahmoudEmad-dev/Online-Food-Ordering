@@ -5,6 +5,7 @@ import productsApi from '../../api/productsApi';
 import adminApi from '../../api/adminApi';
 import type { Product } from '../../types/product';
 import formatCurrency from '../../utils/formatCurrency';
+import { resolveImageUrl } from '../../utils/imageUrl';
 import { useToast } from '../../contexts/ToastContext';
 
 export default function AdminProducts() {
@@ -371,7 +372,7 @@ export default function AdminProducts() {
                         <td className="p-4">
                           <div className="flex items-center gap-3">
                             <img
-                              src={product.imageUrl}
+                              src={resolveImageUrl(product.imageUrl)}
                               alt={name}
                               className="w-10 h-10 object-cover rounded-lg bg-slate-800"
                             />

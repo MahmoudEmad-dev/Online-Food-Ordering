@@ -4,6 +4,7 @@ import type { Product } from '../../types/product';
 import { useCart } from '../../contexts/CartContext';
 import { useToast } from '../../contexts/ToastContext';
 import formatCurrency from '../../utils/formatCurrency';
+import { resolveImageUrl } from '../../utils/imageUrl';
 
 interface ProductCardProps {
   product: Product;
@@ -32,7 +33,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       {/* Product Image */}
       <div className="relative pt-[70%] overflow-hidden bg-slate-800">
         <img
-          src={product.imageUrl}
+          src={resolveImageUrl(product.imageUrl)}
           alt={name}
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-110"
         />

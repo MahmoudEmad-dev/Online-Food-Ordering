@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../contexts/CartContext';
 import { useAuth } from '../contexts/AuthContext';
 import formatCurrency from '../utils/formatCurrency';
+import { resolveImageUrl } from '../utils/imageUrl';
 
 export default function CartPage() {
   const { t, i18n } = useTranslation();
@@ -54,7 +55,7 @@ export default function CartPage() {
             return (
               <div key={item.id} className="card p-4 flex items-center gap-4 glass">
                 <img
-                  src={product.imageUrl}
+                  src={resolveImageUrl(product.imageUrl)}
                   alt={name}
                   className="w-20 h-20 object-cover rounded-lg bg-slate-800"
                 />

@@ -14,13 +14,29 @@ using FoodOrderAPI.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// ─── Port Configuration (for Render.com) ─────────────────────────────────────
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5069";
+builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
+
 // ─── Database Context ────────────────────────────────────────────────────────
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? "";
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+{
+    if (connectionString.Contains("databaseasp.net") || connectionString.Contains("Server=") || connectionString.Contains("DataSource="))
+    {
+        options.UseSqlServer(connectionString);
+    }
+    else
+    {
+        options.UseSqlite(connectionString);
+    }
+});
 
 // ─── JWT Authentication ──────────────────────────────────────────────────────
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
-var secretKey = jwtSettings["SecretKey"]!;
+// Prefer environment variable for production security, fallback to appsettings
+var secretKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY") 
+    ?? jwtSettings["SecretKey"]!;
 
 builder.Services.AddAuthentication(options =>
 {
@@ -44,7 +60,11 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddAuthorization();
 
 // ─── CORS ────────────────────────────────────────────────────────────────────
-var allowedOrigins = builder.Configuration.GetSection("CorsSettings:AllowedOrigins").Get<string[]>() ?? [];
+// Read from env var (comma-separated) for production, fallback to appsettings
+var envOrigins = Environment.GetEnvironmentVariable("ALLOWED_ORIGINS");
+var allowedOrigins = !string.IsNullOrEmpty(envOrigins)
+    ? envOrigins.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+    : builder.Configuration.GetSection("CorsSettings:AllowedOrigins").Get<string[]>() ?? [];
 
 builder.Services.AddCors(options =>
 {
@@ -109,14 +129,26 @@ builder.Services.AddScoped<JwtHelper>();
 
 var app = builder.Build();
 
+// ─── Auto-apply Migrations or Ensure Created ─────────────────────────────────
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    if (db.Database.IsSqlServer())
+    {
+        db.Database.EnsureCreated();
+    }
+    else
+    {
+        db.Database.Migrate();
+    }
+}
+
 // ─── Middleware Pipeline ─────────────────────────────────────────────────────
 app.UseMiddleware<ExceptionMiddleware>();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+// Enable Swagger in all environments for API testing
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
