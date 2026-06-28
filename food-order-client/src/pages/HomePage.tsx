@@ -5,8 +5,8 @@ export default function HomePage() {
   const { t } = useTranslation();
 
   return (
-    <div className="w-full max-w-4xl mx-auto py-16 px-4 text-center animate-fade-in-up">
-      <div className="mb-8 animate-float flex justify-center">
+    <div className="hero-page-container animate-fade-in-up">
+      <div className="hero-icon-wrapper animate-float">
         <div className="bg-primary/10 p-6 rounded-full border border-primary/20 shadow-glow">
           <svg className="w-20 h-20 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M3 15h18" />

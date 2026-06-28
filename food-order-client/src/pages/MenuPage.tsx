@@ -44,7 +44,7 @@ export default function MenuPage() {
   });
 
   return (
-    <div className="w-full max-w-6xl mx-auto py-12 px-4 animate-fade-in">
+    <div className="menu-page-container animate-fade-in">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-10">
         <div>
           <h1 className="text-4xl font-black gradient-text tracking-tight mb-2">

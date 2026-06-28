@@ -109,7 +109,7 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div className="w-full max-w-5xl mx-auto py-12 px-4 animate-fade-in relative">
+    <div className="checkout-page-container animate-fade-in">
       {/* Processing overlay */}
       {paymentProcessing && (
         <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-md flex flex-col items-center justify-center z-50 animate-fade-in">

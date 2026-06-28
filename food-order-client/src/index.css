@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
+@source "./src/**/*.tsx";
+@source "./src/**/*.ts";
+@source "./index.html";
+
 /* ─── Custom Design Tokens ────────────────────────────────────────────────── */
 :root {
   --color-primary: #f43f5e;
@@ -1020,4 +1024,46 @@ body {
   gap: 0.75rem;
   justify-content: center;
 }
+
+/* ─── Robust Page Containers ────────────────────────────────────────────── */
+.hero-page-container {
+  width: 100%;
+  max-width: 56rem; /* 896px, equivalent to max-w-4xl */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.auth-page-container {
+  width: 100%;
+  max-width: 28rem; /* 448px, equivalent to max-w-md */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 4rem 1rem;
+}
+
+.menu-page-container {
+  width: 100%;
+  max-width: 72rem; /* 1152px, equivalent to max-w-6xl */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 3rem 1rem;
+}
+
+.checkout-page-container {
+  width: 100%;
+  max-width: 64rem; /* 1024px, equivalent to max-w-5xl */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 3rem 1rem;
+  position: relative;
+}
+
+.hero-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
 
