@@ -73,10 +73,17 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.WithOrigins(allowedOrigins)
-              .AllowAnyHeader()
-              .AllowAnyMethod()
-              .AllowCredentials();
+        policy.SetIsOriginAllowed(origin =>
+        {
+            var host = new Uri(origin).Host;
+            return host.Equals("localhost", StringComparison.OrdinalIgnoreCase) || 
+                   host.Equals("127.0.0.1", StringComparison.OrdinalIgnoreCase) || 
+                   host.EndsWith(".vercel.app", StringComparison.OrdinalIgnoreCase) || 
+                   allowedOrigins.Any(o => string.Equals(o, origin, StringComparison.OrdinalIgnoreCase));
+        })
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+        .AllowCredentials();
     });
 });
 
